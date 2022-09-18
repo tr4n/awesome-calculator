@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.tr4n.awesomecalculator.Item" />
+
+        <variable
+            name="listener"
+            type="com.tr4n.awesomecalculator.listener.OnSimpleItemClick" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <soup.neumorphism.NeumorphButton
+            style="@style/Widget.Neumorph.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="@{v -> listener.onClick(item)}"
+            android:text="@{item.text}"
+            android:textSize="22sp"
+            app:isVisible="@{!item.hasDrawable}"
+            app:neumorph_backgroundColor="@color/color_surface_light"
+            app:neumorph_lightSource="leftTop"
+            app:neumorph_shadowColorDark="@color/shadow_color"
+            app:neumorph_shapeAppearance="@style/CustomShapeAppearance"
+            app:neumorph_shapeType="flat"
+            app:neumorph_strokeColor="@color/stroke_color"
+            app:ratioBaseWidth="@{1}"
+            app:textColorRes="@{item.textColor}"
+            app:widthPercent="@{0.23f}"
+            tools:layout_height="100dp"
+            tools:layout_width="100dp"
+            tools:maxLength="1"
+            app:neumorph_inset="10dp"
+            tools:text="@tools:sample/us_zipcodes" />
+
+        <soup.neumorphism.NeumorphImageButton
+            style="@style/Widget.Neumorph.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:onClick="@{v -> listener.onClick(item)}"
+            android:padding="30dp"
+            app:drawableRes="@{item.drawable}"
+            app:isVisible="@{item.hasDrawable}"
+            app:neumorph_backgroundColor="@color/color_surface_light"
+            app:neumorph_lightSource="leftTop"
+            app:neumorph_shadowColorDark="@color/shadow_color"
+            app:neumorph_shapeAppearance="@style/CustomShapeAppearance"
+            app:neumorph_shapeType="flat"
+            app:neumorph_strokeColor="@color/stroke_color"
+            app:ratioBaseWidth="@{1}"
+            app:widthPercent="@{0.23f}"
+            tools:layout_height="100dp"
+            tools:layout_width="100dp"
+            app:neumorph_inset="10dp"
+            tools:text="3"
+            tools:visibility="invisible" />
+    </FrameLayout>
+
+</layout>
